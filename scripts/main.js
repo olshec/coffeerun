@@ -1,7 +1,7 @@
 (function (window) {
-	let App = window.App;
-	let Truck = App.Truck;
-	let DataStore = App.DataStore;
-	let myTruck = new Truck('ncc-1701', new DataStore());
-	window.myTruck = myTruck;
+    let App = window.App;
+    let Truck = App.Truck;
+    let DataStore = App.DataStore;
+    let myTruck = new Truck('ncc-1701', new DataStore());
+    window.myTruck = myTruck;
 })(window);
