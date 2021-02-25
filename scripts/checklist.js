@@ -13,6 +13,14 @@
         }
     }
     
+    CheckList.prototype.addRow = function(coffeeOrder) {
+        //Create new row with information from order coffee
+        let rowElement = new Row(coffeeOrder);
+        
+        //Add property $element for new row in list
+        this.$element.append(rowElement.$element);
+    };
+    
     function Row(coffeeOrder) {
         let $div = $('<div></div>', {
             'data-coffee-order': 'checkbox',
@@ -23,12 +31,12 @@
         
         let $checkbox = $('<input></input>', {
             type: 'checkbox',
-            value: coffee.emailAddress
+            value: coffeeOrder.emailAddress
         });
         
-        let description = coffee.size + ' ';
-        if(coffee.flavor) {
-            description += coffee.flavor + ' ';
+        let description = coffeeOrder.size + ' ';
+        if(coffeeOrder.flavor) {
+            description += coffeeOrder.flavor + ' ';
         }
         
         description += coffeeOrder.coffee + ', ';
