@@ -14,12 +14,22 @@
     }
     
     CheckList.prototype.addRow = function(coffeeOrder) {
+        //Remove all ros with current email
+        this.removeRow(coffeeOrder.emailAddress);
+        
         //Create new row with information from order coffee
         let rowElement = new Row(coffeeOrder);
         
         //Add property $element for new row in list
         this.$element.append(rowElement.$element);
     };
+    
+    CheckList.prototype.removeRow = function(email) {
+        this.$element
+            .find('[value="' + email + '"]')
+            .closest('[data-coffee-order="checkbox"]')
+            .remove();
+    }
     
     function Row(coffeeOrder) {
         let $div = $('<div></div>', {
