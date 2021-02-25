@@ -13,8 +13,16 @@
         }
     }
     
+    CheckList.prototype.addClickHandler = function(fn) {
+        this.$element.on('click', 'input', function(event){
+            let email = event.target.value;
+            this.removeRow(email);
+            fn(email);
+        }.bind(this));
+    };
+    
     CheckList.prototype.addRow = function(coffeeOrder) {
-        //Remove all ros with current email
+        //Remove all rows with current email
         this.removeRow(coffeeOrder.emailAddress);
         
         //Create new row with information from order coffee
