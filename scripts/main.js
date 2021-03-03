@@ -17,11 +17,12 @@
     let formHandler = new FormHandler(FORM_SELECTOR);
     
     formHandler.addSubmitHandler(function(data) {
-        myTruck.createOrder.call(myTruck, data)
+        return myTruck.createOrder.call(myTruck, data)
         .then(function(){
             checkList.addRow.call(checkList, data);
         });
     });
     
     formHandler.addInputHandler(Validation.isCompanyEmail);
+    myTruck.printOrders(checkList.addRow.bind(checkList));
 })(window);
