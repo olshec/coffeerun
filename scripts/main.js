@@ -10,7 +10,7 @@
     let Validation = App.Validation;
     let CheckList = App.CheckList;
     let remoteDS = new RemoteDataStore(SERVER_URL);
-    let myTruck = new Truck('ncc-1701', remoteDS);
+    let myTruck = new Truck('ncc-1701', new DataStore());
     window.myTruck = myTruck;
     let checkList = new CheckList(CHECKLIST_SELECTOR);
     checkList.addClickHandler(myTruck.deliverOrder.bind(myTruck))
